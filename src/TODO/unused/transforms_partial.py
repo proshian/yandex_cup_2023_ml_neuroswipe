@@ -6,12 +6,12 @@ from array import array
 import torch
 from torch import Tensor
 
-from nearest_key_lookup import NearestKeyLookup
-from distances_lookup import DistancesLookup
+from feature_extraction.nearest_key_lookup import NearestKeyLookup
+from feature_extraction.distances_lookup import DistancesLookup
 from ns_tokenizers import KeyboardTokenizerv1, CharLevelTokenizerv2
 from ns_tokenizers import ALL_CYRILLIC_LETTERS_ALPHABET_ORD
 from dataset import RawDatasetEl 
-from grid_processing_utils import get_gname_to_wh, get_kb_label
+from data_obtaining_and_preprocessing.grid_processing_utils import get_gname_to_wh, get_kb_label
 
 from feature_extractors import (NearestKbTokensGetter, GetItemTransformInput, 
                            FullTransformResultType, DecoderInputOutputGetter,

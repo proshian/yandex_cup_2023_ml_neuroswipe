@@ -384,7 +384,7 @@ class WeightedAgregator(PredictionsAgregator):
 
 
 if __name__ == "__main__":
-    DATA_ROOT = "data/data_separated_grid/"
+    DATA_ROOT = "data/data_preprocessed/"
 
     grid_name_to_ranged_preds_names = {
         'default': [

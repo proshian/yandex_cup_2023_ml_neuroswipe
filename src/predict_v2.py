@@ -61,8 +61,9 @@ from concurrent.futures import ProcessPoolExecutor
 from model import MODEL_GETTERS_DICT
 from ns_tokenizers import CharLevelTokenizerv2, KeyboardTokenizerv1
 from dataset import CurveDataset, CurveDatasetSubset
-from word_generators_v2 import GENERATOR_CTORS_DICT
-from feature_extractors import get_val_transform, weights_function_v1
+from word_generators_v2 import GENERATOR_CTORS_DICT, WordGenerator
+from feature_extraction.feature_extractors import get_val_transform, weights_function_v1
+from logit_processors import VocabularyLogitProcessor
 
 
 RawPredictionType = List[List[Tuple[float, str]]]
@@ -146,16 +147,16 @@ class Predictor:
 
         self.use_vocab_for_generation = use_vocab_for_generation
 
-        word_generator_init_kwargs = {}
+        logit_processor = None
         if use_vocab_for_generation:
-            word_generator_init_kwargs = {
-                'vocab': get_vocab(config['voc_path']),
-                'max_token_id': n_classes - 1
-            }
+            logit_processor = VocabularyLogitProcessor(
+                tokenizer=self.word_char_tokenizer, 
+                vocab=get_vocab(config['voc_path']), 
+                max_token_id=n_classes - 1)
 
         self.word_generator = word_generator_ctor(
             model, self.word_char_tokenizer, DEVICE, 
-            **word_generator_init_kwargs)
+            logit_processor)
         
         self.generator_call_kwargs = generator_call_kwargs
 

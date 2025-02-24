@@ -44,7 +44,7 @@
 KB_X_SCALER = lambda x: x/1080
 KB_Y_SCALER = lambda x: x/667
 GRID_NAME = "default"
-DATA_ROOT = "./data/data_separated_grid"
+DATA_ROOT = "./data/data_preprocessed"
 
 
 

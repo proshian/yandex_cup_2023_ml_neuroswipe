@@ -1,7 +1,7 @@
 import gdown
 
 if __name__ == "__main__":
-    DATA_PATH = "data/data_separated_grid"
+    DATA_PATH = "../data/data_preprocessed"
     
     url = "https://drive.google.com/drive/folders/1rRBUKUC0D6eZBJqT9qKs5fKQLl-gboej"
     

@@ -1,4 +1,5 @@
-/data/
+/data_original/
 /data.zip
 /fully_transformed_datasets
 /models_for_debug
+/errors_in_original_data_swipes
