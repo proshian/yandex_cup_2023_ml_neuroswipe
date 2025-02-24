@@ -98,16 +98,16 @@ dvc init
 dvc remote add -d myremote gdrive://1OvqjaZKpSib_m6gCs1QvkfLILXKPiEs3
 dvc remote modify myremote gdrive_acknowledge_abuse true
 
-dvc add data\data_separated_grid\gridname_to_grid.json 
-dvc add data\data_separated_grid\valid__in_train_format__default_only.jsonl 
-dvc add data\data_separated_grid\valid__in_train_format__extra_only.jsonl 
-dvc add data\data_separated_grid\test.jsonl 
-dvc add data\data_separated_grid\train__default_only_no_errors__2023_10_31__03_26_16.jsonl
-dvc add data\data_separated_grid\train__extra_only_no_errors__2023_11_01__19_49_14.jsonl
-dvc add data\data_separated_grid\voc.txt
+dvc add data\data_preprocessed\gridname_to_grid.json 
+dvc add data\data_preprocessed\valid__default_only.jsonl 
+dvc add data\data_preprocessed\valid__extra_only.jsonl 
+dvc add data\data_preprocessed\test.jsonl 
+dvc add data\data_preprocessed\train__default_only_no_errors__2023_10_31__03_26_16.jsonl
+dvc add data\data_preprocessed\train__extra_only_no_errors__2023_11_01__19_49_14.jsonl
+dvc add data\data_preprocessed\voc.txt
 
-cd data\data_separated_grid
-git add gridname_to_grid.json.dvc valid__in_train_format__default_only.jsonl.dvc valid__in_train_format__extra_only.jsonl.dvc test.jsonl.dvc train__default_only_no_errors__2023_10_31__03_26_16.jsonl.dvc train__extra_only_no_errors__2023_11_01__19_49_14.jsonl.dvc voc.txt.dvc
+cd data\data_preprocessed
+git add gridname_to_grid.json.dvc valid__default_only.jsonl.dvc valid__extra_only.jsonl.dvc test.jsonl.dvc train__default_only_no_errors__2023_10_31__03_26_16.jsonl.dvc train__extra_only_no_errors__2023_11_01__19_49_14.jsonl.dvc voc.txt.dvc
 cd ..\..
 
 
