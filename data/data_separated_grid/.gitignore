@@ -1,9 +1,6 @@
-/deleteme
 /gridname_to_grid.json
 /gridname_to_grid__fixed.json
 /info.txt
-/sample_deleteme.jsonl
-/sample_deleteme__default_only.jsonl
 /test.jsonl
 /test_default_predictions.txt
 /test__default_only.jsonl
@@ -22,8 +19,6 @@
 /valid__in_train_format__extra_only.jsonl
 /voc.txt
 /word_tokenizer.pkl
-/deleteme/train__default_only_no_errors_except_segments_check__2023_10_30__17_19_52.jsonl
-/deleteme/train__default_only__not_monotonical_time_or_exceeding_max_distance__ids.txt
 /val_pred_2023_11_07__02_25_25.pkl
 /test_pred_2023_11_07__02_25_25.pkl
 /weights_fname_to_mrr.pkl

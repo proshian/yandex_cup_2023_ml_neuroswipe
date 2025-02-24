@@ -34,8 +34,8 @@ from torch import Tensor
 import numpy as np
 from tqdm.auto import tqdm
 
-from nearest_key_lookup import NearestKeyLookup, ExtendedNearestKeyLookup
-from distances_lookup import DistancesLookup
+from .nearest_key_lookup import NearestKeyLookup, ExtendedNearestKeyLookup
+from .distances_lookup import DistancesLookup
 from ns_tokenizers import KeyboardTokenizerv1, CharLevelTokenizerv2
 from ns_tokenizers import ALL_CYRILLIC_LETTERS_ALPHABET_ORD
 from dataset import RawDatasetEl 

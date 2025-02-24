@@ -2,7 +2,7 @@ from typing import Collection, List
 from warnings import warn
 
 import torch
-from delete_duplicates_stable import delete_duplicates_stable
+from utils.delete_duplicates_stable import delete_duplicates_stable
 
 def get_mmr(preds_list: Collection[Collection[str]], ref: Collection[str]) -> float:
     # Works properly if has duplicates or n_line_preds < 4

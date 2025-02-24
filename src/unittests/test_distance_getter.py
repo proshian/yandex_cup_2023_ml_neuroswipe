@@ -5,7 +5,7 @@ import unittest
 
 import numpy as np
 
-from distances_lookup import distance
+from feature_extraction.distances_lookup import distance
 
 
 class TestDistance(unittest.TestCase):

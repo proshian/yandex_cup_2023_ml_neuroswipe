@@ -62,7 +62,7 @@ from model import MODEL_GETTERS_DICT
 from ns_tokenizers import CharLevelTokenizerv2, KeyboardTokenizerv1
 from dataset import CurveDataset, CurveDatasetSubset
 from word_generators_v2 import GENERATOR_CTORS_DICT
-from feature_extractors import get_val_transform, weights_function_v1
+from feature_extraction.feature_extractors import get_val_transform, weights_function_v1
 
 
 RawPredictionType = List[List[Tuple[float, str]]]

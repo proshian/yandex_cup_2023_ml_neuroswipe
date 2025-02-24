@@ -1,6 +1,7 @@
 from typing import List, Dict, Optional
 import os
 import json
+import argparse
 
 from tqdm import tqdm
 
@@ -52,7 +53,7 @@ def separate_grid_primitive(data_path: str,
     Manipulates json as a string. It works only because grid is the last
     field in the json and the same grid is always exactly the same string.
     It was checked that theese conditions are met for all the .jsonl files
-    in ./data/data. It was also checked that
+    in ./data/data_original. It was also checked that
     separate_grid_primitive and separate_grid results are exactly the same.
     However, this is a very fragile solution and thus it should be used
     carefully and only if time is critical.
@@ -86,25 +87,35 @@ def create_all_datasets_with_separated_grid(data_paths: List[str],
             total
         )
     
-    
 
-if __name__ == '__main__':
-    OUT_ROOT = "data/data_separated_grid"
-    ORIG_ROOT = "data/data"
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description='Separate grid information from dataset files.')
+    parser.add_argument('--input_dir', type=str, required=True, help='Input directory containing original dataset files.')
+    parser.add_argument('--output_dir', type=str, required=True, help='Output directory for processed files.')
+    args = parser.parse_args()
+    return args
+    
+    
+def main():
+    args = parse_args()
 
     f_names = ['train.jsonl', 'valid.jsonl', 'test.jsonl']
-    data_paths = [os.path.join(ORIG_ROOT, f_name) for f_name in f_names]
-    out_paths = [os.path.join(OUT_ROOT, f_name) for f_name in f_names]
+    data_paths = [os.path.join(args.input_dir, f_name) for f_name in f_names]
+    out_paths = [os.path.join(args.output_dir, f_name) for f_name in f_names]
     totals = [6_000_000, 10_000, 10_000]
-
-
+    
     create_all_datasets_with_separated_grid(data_paths, out_paths, totals)
-
-
-    grid_name_to_grid = get_grid_name_to_grid(data_paths[-1], totals[-1])
-
-    grid_name_to_grid__path = os.path.join(OUT_ROOT, "gridname_to_grid.json")
-
-    with open(grid_name_to_grid__path, 'w', encoding='utf-8') as f:
+    
+    # Collect grids from all data files
+    grid_name_to_grid = {}
+    for data_path in data_paths:
+        current_grids = get_grid_name_to_grid(data_path, total=None)
+        grid_name_to_grid.update(current_grids)
+    
+    grid_name_to_grid_path = os.path.join(args.output_dir, "gridname_to_grid.json")
+    with open(grid_name_to_grid_path, 'w', encoding='utf-8') as f:
         json.dump(grid_name_to_grid, f, ensure_ascii=False, separators=(',', ':'), indent=2)
-        
+
+
+if __name__ == '__main__':
+    main()

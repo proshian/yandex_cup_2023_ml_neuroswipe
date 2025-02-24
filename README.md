@@ -49,24 +49,20 @@ pip install -r requirements.txt
 * The training was conducted in kaggle using Tesla P100
 
 
-<!--
 
 ## Yandex cup dataset
 
-
-**TODO: Fill the instructions to obtain the dataset**
-
--->
-
-
-<!-- 
+To obtain and prepare the dataset run
 
 ```sh
-python ./src/downloaders/download_dataset_separated_grid.py
-``` 
+cd src
+bash ./data_obtaining_and_preprocessing/obtain_and_prepare_data.sh
+```
 
+<!--
+TODO:
+* Add and downloading prepared dataset as an alternative
 -->
-
 
 
 ## Workflow Overview
